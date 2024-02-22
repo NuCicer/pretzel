@@ -1,9 +1,3 @@
-//------------------------------------------------------------------------------
-// Added
-/* global module */
-/* global process */
-//------------------------------------------------------------------------------
-
 "use strict";
 
 module.exports = function (environment) {
@@ -12,48 +6,26 @@ module.exports = function (environment) {
     modulePrefix: "pretzel-frontend",
     environment: environment,
     apiHost: process.env.API_URL || "http://localhost:5000",
-    // apiHost: 'http://sc-15-cdc.it.csiro.au:7000',
-    apiNamespace: "api", // adding to the host for API calls
-    rootURL: "/pretzel", // used with Ember local routing
+    apiNamespace: "api",
+    rootURL: "/pretzel",
     locationType: "auto",
     handsOnTableLicenseKey: null,
 
     "ember-local-storage": {
-      namespace: true, // will use the modulePrefix e.g. 'pretzel-frontend'
-      // keyDelimiter: '/' // will use / as a delimiter - the default is :
+      namespace: true,
     },
-
     EmberENV: {
-      FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
-      },
+      FEATURES: {},
       EXTEND_PROTOTYPES: {
-        // Prevent Ember Data from overriding Date.parse.
         Date: false,
       },
     },
-    "ember-simple-auth": {
-      /* these configuration values are moved to the routes :
-       *  authenticationRoute, routeAfterAuthentication, routeIfAlreadyAuthenticated
-       * as per : https://github.com/simplabs/ember-simple-auth/blob/master/guides/upgrade-to-v3.md
-       */
-    },
+    "ember-simple-auth": {},
 
-    APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
-    },
+    APP: {},
   };
 
   if (environment === "development") {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
-
-    // if defined, add $germinate_{username,password} in ENV.germinate.
     if (env.germinate_username) {
       const username = env.germinate_username,
         password = env.germinate_password;
@@ -78,7 +50,7 @@ module.exports = function (environment) {
     //--------------------------------------------------------------------------
     // Added for Pretzel :
     ENV.rootURL = "/pretzel";
-    ENV.apiHost = "";
+    ENV.apiHost = "/pretzel";
   }
   /** If handsOnTableLicenseKey is defined in the environment of npm / ember,
    * HandsOnTable is used for the spreadsheet-style tables in :
