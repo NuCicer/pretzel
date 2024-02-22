@@ -15,7 +15,7 @@ module.exports = function(environment) {
     apiHost: process.env.API_URL || 'http://localhost:5000',
     // apiHost: 'http://sc-15-cdc.it.csiro.au:7000',
     apiNamespace: 'api', // adding to the host for API calls
-    rootURL: '/', // used with Ember local routing
+    rootURL: '/pretzel', // used with Ember local routing
     locationType: 'auto',
     handsOnTableLicenseKey: null,
 
