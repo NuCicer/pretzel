@@ -80,7 +80,7 @@ module.exports = function(environment) {
     // here you can enable a production-specific feature
     //--------------------------------------------------------------------------
     // Added for Pretzel :
-    ENV.apiHost = '';
+    ENV.apiHost = 'pretzel';
   }
   /** If handsOnTableLicenseKey is defined in the environment of npm / ember,
    * HandsOnTable is used for the spreadsheet-style tables in :
