@@ -20,68 +20,62 @@
  * environment to override those values.
  */
 const dotenvOptions = {};
-if (! process.env['DOTENV_CONFIG_PATH']) {
+if (!process.env['DOTENV_CONFIG_PATH']) {
   dotenvOptions.path = 'lb3app/.env';
 }
 const dotenv = require('dotenv').config(dotenvOptions);
 
-const
-envNames =
-  [
-    'DB_USER',
-    'DB_PASS', 
-    'API_HOST',
-    'API_URL',
-    'API_PORT_EXT',
-    'DB_PORT_EXT',
-    'DB_NAME',
-    'EMAIL_FROM',
-    'EMAIL_HOST',
-    'EMAIL_PORT',
-    'EMAIL_ADMIN',
-    'EMAIL_VERIFY',
-    'AUTH',
-    'nBlockFeaturesCopy',
-    'scriptsDir',
-    'blastDir',
-    'vcfDir',
-    'toolsDev',
-    'datasetIdDir',
-    'blastn',
-
-    'DEBUG',
-    'DOTENV_CONFIG_DEBUG',
-    'DOTENV_CONFIG_PATH',
-  ];
-const
-processFieldNames =
-  [
-    'pid',
-    'ppid',
-    'version',
-    /* undefined at this point, must be initialised later
+const envNames = [
+  'DB_USER',
+  'DB_PASS',
+  'API_HOST',
+  'API_URL',
+  'API_PORT_EXT',
+  'DB_PORT_EXT',
+  'DB_NAME',
+  'EMAIL_FROM',
+  'EMAIL_HOST',
+  'EMAIL_PORT',
+  'EMAIL_ADMIN',
+  'EMAIL_VERIFY',
+  'AUTH',
+  'nBlockFeaturesCopy',
+  'scriptsDir',
+  'blastDir',
+  'vcfDir',
+  'toolsDev',
+  'datasetIdDir',
+  'blastn',
+  'DEBUG',
+  'DOTENV_CONFIG_DEBUG',
+  'DOTENV_CONFIG_PATH',
+];
+const processFieldNames = [
+  'pid',
+  'ppid',
+  'version',
+  /* undefined at this point, must be initialised later
     'mainModule.filename',
     'mainModule.path',
     */
-  ];
+];
 
 /** if name is DB_PASS, reduce value to true if defined. */
-function maskValue(name, value)
-{
-  return (name == 'DB_PASS') ? (value ? true : value) : value;
+function maskValue(name, value) {
+  return name == 'DB_PASS' ? (value ? true : value) : value;
 }
 const env = process.env;
 console.log(
-  __dirname, 'process.env',
-  envNames.map((n) => [n, maskValue(n, env[n])]),
+  __dirname,
+  'process.env',
+  envNames.map(n => [n, maskValue(n, env[n])]),
   '\nprocess',
-  processFieldNames.map((n) => [n, process[n]]),
+  processFieldNames.map(n => [n, process[n]]),
   process.cwd(),
   '\n',
   new Date(),
 );
 // heartbeat log message : process. _eventsCount, memoryUsage()
-
 
 // validating provided environment variables
 var environment = require('./environment');
@@ -98,15 +92,15 @@ var bodyParser = require('body-parser');
 
 var clientGroups = require('../common/utilities/client-groups');
 
-var app = module.exports = loopback();
+var app = (module.exports = loopback());
 
 // app.use(bodyParser.json({limit: '200mb'}));
 
-app.start = function() {
+app.start = function () {
   // start the web server
-  return app.listen(function() {
+  return app.listen(function () {
     app.emit('started');
-    var baseUrl = app.get('url').replace(/\/$/, /pretzel/);
+    var baseUrl = app.get('url').replace(/\/$/, '');
     console.log('Web server listening at: %s', baseUrl);
     if (app.get('loopback-component-explorer')) {
       var explorerPath = app.get('loopback-component-explorer').mountPath;
@@ -116,11 +110,11 @@ app.start = function() {
 };
 
 app.use('/express-status', function (req, res, next) {
-    res.json({ running: true });
+  res.json({running: true});
 });
 
 if (process.env.NODE_ENV != 'test') {
-  app.use(morgan('combined'))
+  app.use(morgan('combined'));
 }
 
 //
@@ -130,15 +124,13 @@ if (process.env.NODE_ENV != 'test') {
 var PassportConfigurator = loopbackPassport.PassportConfigurator;
 var passportConfigurator = new PassportConfigurator(app);
 
-
 // Bootstrap the application, configure models, datasources and middleware.
 // Sub-apps like REST API are mounted via boot scripts.
-boot(app, __dirname, function(err) {
+boot(app, __dirname, function (err) {
   if (err) throw err;
 
   // start the server if `$ node server.js`
-  if (require.main === module)
-    app.start();
+  if (require.main === module) app.start();
 });
 
 //
@@ -153,12 +145,12 @@ boot(app, __dirname, function(err) {
 // Build the providers/passport config
 // var config = {};
 // try {
-// 	config = require('../providers.json');
+//  config = require('../providers.json');
 // } catch (err) {
 //   console.trace(err);
 //   console.error('Please configure your passport strategy in `providers.json`.');
 //   console.error('Copy `providers.example.json` to `providers.json` and replace the clientID/clientSecret values with your own.');
-// 	process.exit(1); // fatal
+//  process.exit(1); // fatal
 // }
 
 // // Initialize passport
@@ -186,9 +178,9 @@ app.set('views', path.resolve(__dirname, 'views'));
 //
 // - - - - - FILE DELIVERY CONFIG - - - - - -
 //
-// 
+//
 
-let clientPath = path.resolve(__dirname, '../../client')
+let clientPath = path.resolve(__dirname, '../../client');
 
 // default route handling to deliver client files
 app.use('/pretzel/', loopback.static(clientPath));
@@ -197,7 +189,7 @@ app.use('/pretzel/', loopback.static(clientPath));
 // this was an issue when providing the confirm token on email
 // validation, as the confirm API request would deliver files
 // instead of hitting the API as desired.
-app.use(/^((?!api).)*$/, loopback.static(clientPath));
+// app.use(/^((?!api).)*$/, loopback.static(clientPath));
 
 // -----------------------------------------------------------------------------
 
