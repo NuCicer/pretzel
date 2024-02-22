@@ -1,29 +1,27 @@
-
 //------------------------------------------------------------------------------
 // Added
 /* global module */
 /* global process */
 //------------------------------------------------------------------------------
 
-'use strict';
+"use strict";
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   const env = process.env;
   var ENV = {
-    modulePrefix: 'pretzel-frontend',
+    modulePrefix: "pretzel-frontend",
     environment: environment,
-    apiHost: process.env.API_URL || 'http://localhost:5000',
+    apiHost: process.env.API_URL || "http://localhost:5000",
     // apiHost: 'http://sc-15-cdc.it.csiro.au:7000',
-    apiNamespace: 'api', // adding to the host for API calls
-    rootURL: '/pretzel', // used with Ember local routing
-    locationType: 'auto',
+    apiNamespace: "api", // adding to the host for API calls
+    rootURL: "/pretzel", // used with Ember local routing
+    locationType: "auto",
     handsOnTableLicenseKey: null,
 
-    'ember-local-storage': {
+    "ember-local-storage": {
       namespace: true, // will use the modulePrefix e.g. 'pretzel-frontend'
       // keyDelimiter: '/' // will use / as a delimiter - the default is :
     },
-
 
     EmberENV: {
       FEATURES: {
@@ -32,10 +30,10 @@ module.exports = function(environment) {
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }, 
+        Date: false,
+      },
     },
-    'ember-simple-auth': {
+    "ember-simple-auth": {
       /* these configuration values are moved to the routes :
        *  authenticationRoute, routeAfterAuthentication, routeIfAlreadyAuthenticated
        * as per : https://github.com/simplabs/ember-simple-auth/blob/master/guides/upgrade-to-v3.md
@@ -45,10 +43,10 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
   };
 
-  if (environment === 'development') {
+  if (environment === "development") {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -57,30 +55,30 @@ module.exports = function(environment) {
 
     // if defined, add $germinate_{username,password} in ENV.germinate.
     if (env.germinate_username) {
-      const
-      username = env.germinate_username,
-      password = env.germinate_password;
-      ENV.germinate = {username, password};
+      const username = env.germinate_username,
+        password = env.germinate_password;
+      ENV.germinate = { username, password };
     }
   }
 
-  if (environment === 'test') {
+  if (environment === "test") {
     // Testem prefers this...
-    ENV.locationType = 'none';
+    ENV.locationType = "none";
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
-    ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.rootElement = "#ember-testing";
     ENV.APP.autoboot = false;
   }
 
-  if (environment === 'production') {
+  if (environment === "production") {
     // here you can enable a production-specific feature
     //--------------------------------------------------------------------------
     // Added for Pretzel :
-    ENV.apiHost = 'pretzel';
+    ENV.rootURL = "/pretzel";
+    ENV.apiHost = "";
   }
   /** If handsOnTableLicenseKey is defined in the environment of npm / ember,
    * HandsOnTable is used for the spreadsheet-style tables in :
@@ -99,7 +97,6 @@ module.exports = function(environment) {
    * https://handsontable.com/docs/7.4.2/tutorial-license-key.html
    */
   ENV.handsOnTableLicenseKey = process.env.handsOnTableLicenseKey;
-
 
   return ENV;
 };
