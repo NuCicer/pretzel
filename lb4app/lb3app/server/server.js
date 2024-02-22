@@ -191,7 +191,7 @@ app.set('views', path.resolve(__dirname, 'views'));
 let clientPath = path.resolve(__dirname, '../../client')
 
 // default route handling to deliver client files
-app.use('/', loopback.static(clientPath));
+app.use('/pretzel/', loopback.static(clientPath));
 // using a regex to avoid wildcard matching of api route,
 // but delivering files when hitting all other routes.
 // this was an issue when providing the confirm token on email
