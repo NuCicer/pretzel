@@ -9,7 +9,7 @@ module.exports = function (environment) {
     apiNamespace: "api",
     rootURL: "/pretzel",
     locationType: "auto",
-    handsOnTableLicenseKey: null,
+    handsOnTableLicenseKey: "non-commercial-and-evaluation",
 
     "ember-local-storage": {
       namespace: true,
