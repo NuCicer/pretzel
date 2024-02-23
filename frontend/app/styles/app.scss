@@ -3,40 +3,35 @@
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
 
-body.ember-application > div.ember-view > div.container
-{
-    padding-right: 5px;
-    padding-left: 5px;
+body.ember-application > div.ember-view > div.container {
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
-body.mapview div#Page-Outer
-{
+body.mapview div#Page-Outer {
   position: fixed;
   height: 100%;
 }
-body.mapview div#Page-Nav
-{
+body.mapview div#Page-Nav {
   position: fixed;
   top: 0;
   height: 69px;
 }
-body.mapview div#Page-Body
-{
-  position: fixed; 
-  top: 69px;
+body.mapview div#Page-Body {
+  position: fixed;
+  top: 5px;
   bottom: 0;
 }
-
 
 /** show bottom border for non-active tabs
  */
 .nav-tabs > li:not(.active) > a:not(.apiServer) {
-  border-bottom-color : #ddd;
+  border-bottom-color: #ddd;
 }
 /** offset so that the border-top of the tab is distinct from elements above.
  */
 .nav-tabs > li {
-  margin-top : 10px;  
+  margin-top: 10px;
 }
 .nav-tabs > li:not(.active) {
   background-color: #f8f8f8;
@@ -56,9 +51,8 @@ ul.nav-tabs.api-server-tabs > li:not(.active) {
 }
 .nav-tabs > li.active + li > a:not(.apiServer) {
   border-top-right-radius: 10px;
-  border-bottom-color : transparent;
+  border-bottom-color: transparent;
 }
-
 
 /* this rule is duplicated in ember-bootstrap/bootstrap/_navs.scss, so get higher specificity by prefixing with body.mapview
  * Changing from active having background-color to no bottom-border
@@ -68,11 +62,11 @@ ul.nav-tabs.api-server-tabs > li:not(.active) {
 */
 body.mapview .nav-pills > li.active > a/*,
 body.mapview .nav-tabs > li.active > a:hover,
-body.mapview .nav-tabs > li.active > a:focus*/{
+body.mapview .nav-tabs > li.active > a:focus*/ {
   color: #555555;
   /* possibly use #d9edf7, from .list-group-item-info */
   background-color: lightblue;
-} 
+}
 
 /* -------------------------------------------------------------------------- */
 /* Make the top (left & right) menus horizontal. */
@@ -87,28 +81,24 @@ div.app-logo {
 /* -------------------------------------------------------------------------- */
 
 .draw-map-container,
-.tabbed-table-container
-{
-    /* float: left; */
+.tabbed-table-container {
+  /* float: left; */
 }
-.draw-map-container
-{
-    width: 100%;
+.draw-map-container {
+  width: 100%;
 }
 /* Large desktop */
 @media (min-width: 1200px) {
-.draw-map-container
-{
+  .draw-map-container {
     width: 100%;
-}
+  }
 }
 
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
-.draw-map-container
-{
+  .draw-map-container {
     width: 100%;
-}
+  }
 }
 
 /* Landscape phone to portrait tablet */
@@ -122,33 +112,28 @@ div.app-logo {
 /* -------------------------------------------------------------------------- */
 
 .draw-map-container,
-#holder
-{
+#holder {
   height: 100%;
 }
-
 
 /* #holder contains the graph (svg);  it is within .draw-map-container */
 /* Large desktop */
 @media (min-width: 1200px) {
-#holder
-{
+  #holder {
     /* padding : 50px; */
-}
+  }
 }
 
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) {
-#holder
-{
+  #holder {
     /* padding : 30px; */
+  }
 }
-}
-#holder
-{
-    // allow long titles to enter the white-space above and right of the graph, instead of using padding.
-    padding-top : 0px;
-    padding-right : 0px;
+#holder {
+  // allow long titles to enter the white-space above and right of the graph, instead of using padding.
+  padding-top: 0px;
+  padding-right: 0px;
 }
 
 /* Landscape phone to portrait tablet */
@@ -159,9 +144,8 @@ div.app-logo {
 @media (max-width: 480px) {
 }
 
-.devel #holder
-{
-    padding : inherit;
+.devel #holder {
+  padding: inherit;
 }
 @media (min-height: 600px) and (max-height: 719px) {
   body.devel div#holder {
@@ -170,42 +154,40 @@ div.app-logo {
 }
 
 #headsUp {
-  position : absolute;
+  position: absolute;
   /* left : 70px; */
   /* top : 50px; */
-  margin-left : -20px;
-  margin-top : 15px;
+  margin-left: -20px;
+  margin-top: 15px;
 }
 
 /* -------------------------------------------------------------------------- */
 /* Handle to resize a panel width. 
  * Used by app/utils/domElements.js : eltWidthResizable() */
-.resizer
-{
+.resizer {
   font-weight: 900;
   font-size: larger;
   float: right;
   /* align the icon above the border it moves */
-  margin-right: -6px  !important;
-  margin : 1px;
-  padding : 2px 2px;
+  margin-right: -6px !important;
+  margin: 1px;
+  padding: 2px 2px;
 }
-.resizer:hover
-{
+.resizer:hover {
   /* The dashed hover border is positioned for horizontal / width resizer; it is out of place for vertical */
   border: 1px #337ab7 dashed;
-  border-radius :  6px;
-  margin-right: -7px  !important;	/* -6px - 1px to balance the border 1px */
-  margin : 0px;
+  border-radius: 6px;
+  margin-right: -7px !important; /* -6px - 1px to balance the border 1px */
+  margin: 0px;
 
   /* font-size: x-large; */
-  color: #337ab7;  // brand blue;
+  color: #337ab7; // brand blue;
 }
 /* This doesn't work within <foreignObject>, so :not(.inFO) is used.
  * draw-map resizer has an icon, doesn't need this one.
  */
 .resizer:not(.inFO):not(.no-resizer-icon)::after {
-/*	⇹	8697	21F9	 	LEFT RIGHT ARROW WITH VERTICAL STROKE	*/
+  /*  ⇹ 8697  21F9    LEFT RIGHT ARROW WITH VERTICAL STROKE */
   content: "\21F9";
   right: -20px;
   position: relative;
@@ -213,15 +195,15 @@ div.app-logo {
   /* require a minimum of 121 to be above the HandsOnTable elements near this element. */
   z-index: 181;
 }
-.resizer.vertical:not(.inFO):not(.no-resizer-icon)::after
-{
-  right : inherit;
+.resizer.vertical:not(.inFO):not(.no-resizer-icon)::after {
+  right: inherit;
   bottom: calc(0px - var(--matrixViewColumnHeaderHeight));
   /** ↧ Downwards Arrow from Bar.   https://symbl.cc/en/21A7/ */
   content: "\21A7";
 }
-/*.foreignObject*/ .resizer.inFO {
-  position : inherit;
+/*.foreignObject*/
+.resizer.inFO {
+  position: inherit;
 }
 /* This is for ::after content;  position:fixed mostly works, but y position is variable.
 .foreignObject .resizer.inFO::after {
@@ -229,32 +211,31 @@ div.app-logo {
   right: -25px;
 }
  */
-.resizer:hover
-{
-  opacity : 0.7;
-  color: hsl(208, 95%, 52%);	// #337ab7 with increased saturation and luminosity
+.resizer:hover {
+  opacity: 0.7;
+  color: hsl(208, 95%, 52%); // #337ab7 with increased saturation and luminosity
 }
 /* The resizer icon is wrapped in div.menuHead : width: 100%, so that it remains
  * under cursor when hover increases parent width.  */
 .resizer > .menuHead {
-    width: 100%;
+  width: 100%;
 }
 /* can change this to use .hover-parent, .hover-child  */
 .resizer > .subMenu {
-    /* position: fixed; */
-    display : none;
+  /* position: fixed; */
+  display: none;
 }
 .resizer:hover > .subMenu {
-    display : inherit;
+  display: inherit;
 }
 
 /* -------------------------------------------------------------------------- */
 /* show the child when the parent is hovered */
 .hover-parent > .hover-child {
-    display : none;
+  display: none;
 }
 .hover-parent:hover > .hover-child {
-    display : inherit;
+  display: inherit;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -268,26 +249,22 @@ div.app-logo {
 }
 
 /* -------------------------------------------------------------------------- */
-#table-brushed
-{
-overflow-x: scroll;
+#table-brushed {
+  overflow-x: scroll;
 }
 
 table.contextual-data-table th,
-table.contextual-data-table td
-{
+table.contextual-data-table td {
   padding-right: 1em;
 }
 
-// table.contextual-data-table 
-.status-icon .glyphicon-ok
-{
-  color : green;
+// table.contextual-data-table
+.status-icon .glyphicon-ok {
+  color: green;
 }
 .chrNotInDataset,
-.notInPipeline
-{
-  color : red;
+.notInPipeline {
+  color: red;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -301,7 +278,6 @@ svg {
   width: 99%;
 }
 
-
 /** for axis being dragged : dragstarted(). SVG. */
 .active {
   stroke: #f93;
@@ -313,7 +289,7 @@ svg {
 }
 
 .map.zoomed g.axis {
-    cursor: move;
+  cursor: move;
 }
 
 /* ---------------------------------- */
@@ -332,16 +308,16 @@ g.axis-use > g.tracks > g > rect.track {
   /* stroke: lightblue; */
 }
 path.track.element.utr {
-  stroke-width : 10;
-  stroke-dasharray : 25;
-  stroke : blue;
+  stroke-width: 10;
+  stroke-dasharray: 25;
+  stroke: blue;
 }
 path.track.element.match_part {
-  stroke-width : 6;
-  stroke : purple;
+  stroke-width: 6;
+  stroke: purple;
 }
 path.track.element.intron {
-  fill : none;
+  fill: none;
 }
 rect.track.element.CDS {
   fill: yellow;
@@ -364,7 +340,7 @@ g.axis-use
 > rect.chartRow
 */
 rect.chartRow {
-  opacity : 0.5;
+  opacity: 0.5;
 }
 g:not(.featureCountData) > g.chart-line > rect.chartRow {
   stroke: blue;
@@ -376,30 +352,26 @@ g:not(.featureCountData) > g.chart-line > rect.chartRow {
 
 /* ---------------------------------- */
 
-path.chartRow.line
-{
-      fill : none;
-      /* stroke : magenta; */
-      stroke-linejoin : round;
-      stroke-linecap : round;
-      stroke-width : 1.5;
+path.chartRow.line {
+  fill: none;
+  /* stroke : magenta; */
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-width: 1.5;
 }
 
-circle.radio.toggle.chartType
-{
-      fill : orchid;
-      fill-opacity : 0.2;
-      stroke : magenta;
-      stroke-width : 2;
-      cursor: pointer;
+circle.radio.toggle.chartType {
+  fill: orchid;
+  fill-opacity: 0.2;
+  stroke: magenta;
+  stroke-width: 2;
+  cursor: pointer;
 }
-circle.radio.toggle.chartType.pushed
-{
-      fill-opacity : 1;
+circle.radio.toggle.chartType.pushed {
+  fill-opacity: 1;
 }
 
 /* ---------------------------------- */
-
 
 /* overflow:scroll within foreignObject works in firefox, not chrome;  see
  * https://stackoverflow.com/questions/34206459/scroll-is-not-working-inside-svg-foreign-object-in-chrome
@@ -407,29 +379,27 @@ circle.radio.toggle.chartType.pushed
  * code.google.com/p/chromium/issues/detail?id=568614
  */
 .foreignObject body.axis-table {
-    overflow: hidden;
-    /* overflow: scroll; */
+  overflow: hidden;
+  /* overflow: scroll; */
 }
 .foreignObject body.axis-table:not(:-moz-handler-blocked) {
-    overflow: scroll;
+  overflow: scroll;
 }
 
-body:not(.axis2dResizer)
-g.axis-use.hasChart > g.axis-html > .foreignObject {
-    display : none;
+body:not(.axis2dResizer) g.axis-use.hasChart > g.axis-html > .foreignObject {
+  display: none;
 }
-
 
 /* ---------------------------------- */
 /** Tooltip displayed when hover over feature / QTL diamond in axis-tracks. @see hoverQtlHtmlFn() */
 
 .hoverTraitColour {
-  color : var(--hoverTraitColour);
-  margin-right : 1em;
+  color: var(--hoverTraitColour);
+  margin-right: 1em;
 }
 .hoverOntologyColour {
-  color : var(--hoverOntologyColour);
-  margin-right : 1em;
+  color: var(--hoverOntologyColour);
+  margin-right: 1em;
 }
 
 /* related : div.highlightFeature, div.toolTip */
@@ -437,12 +407,10 @@ g.axis-use.hasChart > g.axis-html > .foreignObject {
   text-align: left;
   /* width: 18em; */
 }
-.featureHover.html.QTL  > div
-{
+.featureHover.html.QTL > div {
   /* This shows the colour block as a hanging paragraph tag, with the text wrapped and indented. */
   display: inline-flex;
 }
-
 
 /* ---------------------------------- */
 
@@ -478,7 +446,7 @@ div.drawing-controls.flowButtons .flowButton.alias,
 .foreground > g.alias > g > path,
 .foreground > g.progress > g.alias > g.blockAdj > g > path {
   /* HTML  */
-  border-color : #955;
+  border-color: #955;
   background-color: #955;
   /* SVG  */
   stroke: #955;
@@ -486,26 +454,25 @@ div.drawing-controls.flowButtons .flowButton.alias,
 div.drawing-controls.flowButtons .flowButton.U_alias,
 .foreground > g.U_alias > g > path,
 .foreground > g.progress > g.U_alias > g.blockAdj > g > path {
-  border-color : #545;
+  border-color: #545;
   background-color: #545;
   stroke: #545;
 }
 div.drawing-controls.flowButtons .flowButton.direct,
 .foreground > g.direct > g > path,
-.foreground > g.progress > g.direct > g.blockAdj > g > path
-{
-  border-color : #484;
+.foreground > g.progress > g.direct > g.blockAdj > g > path {
+  border-color: #484;
   background-color: #484;
   stroke: #484;
 }
 body.devel .foreground > g > g > path {
-  stroke-dasharray: 30 50 calc(var(--path-stroke-width)*10);
-  stroke: rgb(50,50,100);
+  stroke-dasharray: 30 50 calc(var(--path-stroke-width) * 10);
+  stroke: rgb(50, 50, 100);
   transform: translate(0px, 5px);
 }
 body.devel .foreground > g.progress > g > g.blockAdj > g > path {
   stroke-dasharray: 10 40;
-  stroke: rgb(100,50,50);
+  stroke: rgb(100, 50, 50);
 }
 
 .foreground path {
@@ -513,18 +480,18 @@ body.devel .foreground > g.progress > g > g.blockAdj > g > path {
   stroke: #808;
 }
 :root {
-  --path-stroke-opacity : 1;//.125;
+  --path-stroke-opacity: 1; //.125;
   --path-stroke-width: 0.75px;
   /* this may not update - uses the initial value of var() */
-  --manyPaths-stroke-opacity: calc(var(--path-stroke-opacity)*0.8); //.125;
-  --manyPaths-stroke-width: calc(var(--path-stroke-width)*0.8); // 0.75px;
+  --manyPaths-stroke-opacity: calc(var(--path-stroke-opacity) * 0.8); //.125;
+  --manyPaths-stroke-width: calc(var(--path-stroke-width) * 0.8); // 0.75px;
 }
 .foreground path {
   stroke-opacity: var(--path-stroke-opacity); //.125;
   stroke-width: var(--path-stroke-width); // 0.75px;
 }
 .manyPaths .foreground path {
-    /* Works for Chrome, haven't found a working configuration for Firefox.
+  /* Works for Chrome, haven't found a working configuration for Firefox.
   stroke-opacity: var(--manyPaths-stroke-opacity);
   stroke-width: var(--manyPaths-stroke-width);
    */
@@ -532,22 +499,21 @@ body.devel .foreground > g.progress > g > g.blockAdj > g > path {
 
 /* or :hover if transition is not required. */
 .devel .foreground path.hovered {
-    /* was d3:easeElastic */
-    transition:
-    stroke		800ms ease-in-out,
-    stroke-width	800ms ease-in-out,
-    stroke-opacity	800ms ease-in-out,
-    fill		800ms ease-in-out;
+  /* was d3:easeElastic */
+  transition:
+    stroke 800ms ease-in-out,
+    stroke-width 800ms ease-in-out,
+    stroke-opacity 800ms ease-in-out,
+    fill 800ms ease-in-out;
 
-    /* element stroke is set by pathColourUpdate(); override that via !important.  */
-    stroke : #880044	!important;
-    stroke-width : 6px;
-    stroke-opacity : 1;
-    fill : none;
+  /* element stroke is set by pathColourUpdate(); override that via !important.  */
+  stroke: #880044 !important;
+  stroke-width: 6px;
+  stroke-opacity: 1;
+  fill: none;
 }
-:root
-{
-  --faded-stroke-opacity: calc(var(--path-stroke-opacity)*0.7);
+:root {
+  --faded-stroke-opacity: calc(var(--path-stroke-opacity) * 0.7);
 }
 .foreground .faded path {
   fill: none;
@@ -560,33 +526,28 @@ body.devel .foreground > g.progress > g > g.blockAdj > g > path {
   stroke-opacity: 1;
   stroke-width: 2px;
 }
-.foreground path.reSelected
-{
-    stroke : red;
+.foreground path.reSelected {
+  stroke: red;
 }
 /* this rule targets the legend (html) and the path (svg); different css
  * attributes apply to each; the purpose of combining the rule is to enable a user
  * to easily navigate from the legend to the css rule. */
 div#scaffoldLegend > ul > li.scaffoldA,
-.foreground path.scaffoldA
-{
-    /* stroke : red; */
-    color : red;
-    stroke-dasharray : 1 2 3 4 5;
+.foreground path.scaffoldA {
+  /* stroke : red; */
+  color: red;
+  stroke-dasharray: 1 2 3 4 5;
 }
-div#scaffoldLegend
-{
+div#scaffoldLegend {
   float: left;
   margin-right: 1em;
 }
-div#scaffoldLegend > ul
-{
+div#scaffoldLegend > ul {
   list-style-type: none;
 }
-.foreground path.strong
-{
-    stroke-width : 2px;
-    stroke-opacity: 1;
+.foreground path.strong {
+  stroke-width: 2px;
+  stroke-opacity: 1;
 }
 
 /* this is partly a duplicate of a rule below (comment - Brush css style).  Both were added in b637845 (2016 Sep 23)  */
@@ -602,10 +563,8 @@ div#scaffoldLegend > ul
  *  helpful to see the comparison of paths calculated on back- and front- end.
  *
  */
-body.devel
- path.blockAdj,
-body.allInitially
- path.blockAdj {
+body.devel path.blockAdj,
+body.allInitially path.blockAdj {
   /* emphasise the new (progressive) paths during devel. */
   stroke: red;
   /* stroke-width: 2px; */
@@ -613,18 +572,17 @@ body.allInitially
   /* stroke-opacity: 1; */
 }
 
-
-.axis line, .axis path:not(.horizTick),
-.axis-use > path:not(.horizTick)
-{
+.axis line,
+.axis path:not(.horizTick),
+.axis-use > path:not(.horizTick) {
   fill: none;
   shape-rendering: crispEdges;
 }
-.axis line, .axis path:not(.horizTick),
-.axis-use > path
-{
+.axis line,
+.axis path:not(.horizTick),
+.axis-use > path {
   stroke: #000; /* black */
-  stroke-width : var(--axisWidth);
+  stroke-width: var(--axisWidth);
 }
 
 .axis text {
@@ -632,8 +590,7 @@ body.allInitially
   // text-anchor: middle;
 }
 body.ctrl-modifier .axis text,
-body.ctrl-modifier .axis-all > g.brush > g > rect
-{
+body.ctrl-modifier .axis-all > g.brush > g > rect {
   cursor: move;
 }
 /* axis menu remains enabled regardless of .applyChange */
@@ -670,35 +627,48 @@ body.ctrl-modifier .axis-all > g.brush > g > rect
 }
 
 body:not(.multipleServers) tspan.blockServer {
-    display : none;
+  display: none;
 }
 tspan.blockServer {
-    font-size : 2em;
+  font-size: 2em;
 }
 
 /* -------------------------------------------------------------------------- */
 #grid {
-    float: right;
-    /* padding-right: 100px; */
-    padding-bottom: 50px;
-    /* margin-left: 10em;	*/
-    position:relative;}
-.row, .header {
- /* clear: left; */
- font-size: 12px; line-height: 18px; height: 18px;}
-
+  float: right;
+  /* padding-right: 100px; */
+  padding-bottom: 50px;
+  /* margin-left: 10em; */
+  position: relative;
+}
+.row,
+.header {
+  /* clear: left; */
+  font-size: 12px;
+  line-height: 18px;
+  height: 18px;
+}
 
 /* .row:nth-child(odd) { background: rgba(0,0,0,0.05); } */
 .rowstripe:nth-child(odd) {
-  background: rgba(0,0,0,0.05);
+  background: rgba(0, 0, 0, 0.05);
 }
 
-.header { font-weight: bold; }
-.cell { float: left; overflow: hidden; white-space: nowrap; width: 180px; height: 18px;}
-.col-0 { width: 100x; }
+.header {
+  font-weight: bold;
+}
+.cell {
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 180px;
+  height: 18px;
+}
+.col-0 {
+  width: 100x;
+}
 
-div.colouredFeatures
-{
+div.colouredFeatures {
   white-space: pre;
   float: left;
   min-height: 10em;
@@ -712,18 +682,16 @@ div.colouredFeatures
 
 /* bootstrap has clearfix, but it is not present in current build.  */
 .clear-both,
-div.ExportFlowData
-{
-    clear: both;
+div.ExportFlowData {
+  clear: both;
 }
-
 
 /* -------------------------------------------------------------------------- */
 
 /* Brush css style */
 .brush .extent {
   stroke: #000;
-  fill-opacity: .125;
+  fill-opacity: 0.125;
   shape-rendering: crispEdges;
 }
 /* the middle g is g[clip-path] */
@@ -731,12 +699,12 @@ g.brush:hover > g > rect.handle {
   stroke: blue;
 }
 g.brush:hover > g > rect.overlay {
-    outline: 1px dashed purple; 
-    -webkit-tap-highlight-color: rgba(70, 30, 50, 0);
+  outline: 1px dashed purple;
+  -webkit-tap-highlight-color: rgba(70, 30, 50, 0);
 }
 g.tick:hover {
   /* indicate that g.axis > g.tick > text can be dragged with ctrl-click. */
-  outline: 1px dashed orange; 
+  outline: 1px dashed orange;
 }
 /* feedback : no need to increase font size on hover.
 g.axis > g.tick > text:hover {
@@ -752,51 +720,44 @@ g.axis > g.tick > text:hover {
  * useful, instead perhaps classify in groups, e.g. give each group of added
  * ticks a new id for an ordinal colour scale.
  */
-path.horizTick.fromInput
-{
-    stroke: green;
+path.horizTick.fromInput {
+  stroke: green;
 }
-.horizTick
-{
+.horizTick {
   /* stroke (colour) is now provided by axisTitleColour(). */
-  stroke-width : 2px;
+  stroke-width: 2px;
 }
-g.foundFeatures > path.horizTick
-{
-  stroke-width : 1px;
+g.foundFeatures > path.horizTick {
+  stroke-width: 1px;
 }
 g.foundFeatures.horizTick > path.horizTick:hover {
   /* indicate this element is clickable, and make it easier to click.  */
   stroke-width: 5px;
 }
 
-
 g.horizTick.labelledFeatures > text.horizTick {
-    stroke-width: initial;
-    text-anchor: end;
-    // or alignment-baseline: middle, mathematical;
-    dominant-baseline : central;
-    text-shadow: initial
+  stroke-width: initial;
+  text-anchor: end;
+  // or alignment-baseline: middle, mathematical;
+  dominant-baseline: central;
+  text-shadow: initial;
 }
 
-path.genotypeEdge
-{
-  fill : none;
+path.genotypeEdge {
+  fill: none;
   stroke: black;
   stroke-dasharray: 15 15;
 }
 
-path.syntenyEdge
-{
-  fill-opacity: calc(var(--path-stroke-opacity)*0.33);
+path.syntenyEdge {
+  fill-opacity: calc(var(--path-stroke-opacity) * 0.33);
   fill: magenta;
   stroke: purple;
   stroke-dasharray: 8 4 8 20;
   stroke-opacity: var(--path-stroke-opacity);
-  stroke-width : var(--path-stroke-width)
+  stroke-width: var(--path-stroke-width);
 }
-path.syntenyEdge.inverted
-{
+path.syntenyEdge.inverted {
   fill: orangered;
   stroke: orangered;
   stroke-dasharray: 16 8 16 40;
@@ -817,15 +778,16 @@ svg.applyChange g.brush > g > rect {
 
 svg.applyChange path.syntenyEdge {
   /* centre on the tip of the paint drip x=1, y=22 px (from top-left origin). */
-  cursor: url('/assets/images/bucketFill.png') 1 22, auto;
+  cursor:
+    url("/assets/images/bucketFill.png") 1 22,
+    auto;
 }
 
 /*----------------------------------------------------------------------------*/
 /* no border for popover when displayed in top-right of graph, i.e. ! hoverNearElement */
-#holder > div.popover.no-border
-{
-  border : none;
-  box-shadow : none;
+#holder > div.popover.no-border {
+  border: none;
+  box-shadow: none;
 
   /* avoid overlapping the top border of the graph area */
   margin-top: 20px;
@@ -833,16 +795,17 @@ svg.applyChange path.syntenyEdge {
   margin-left: -160px;
   /* overflow-x: auto; */
   .popover-content {
-      padding-top : 0;
+    padding-top: 0;
   }
 }
 
 /*----------------------------------------------------------------------------*/
 /* Button */
-.btn { cursor: pointer; }
+.btn {
+  cursor: pointer;
+}
 
-.btn > rect
-{
+.btn > rect {
   width: 60px;
   height: 30px;
   rx: 3px;
@@ -850,62 +813,54 @@ svg.applyChange path.syntenyEdge {
   fill: #eee;
   stroke: #ddd;
 }
-.btn > text
-{
+.btn > text {
   text-anchor: middle;
 }
 g.axis-outer > g.btn > rect.Zoom {
-    x: -30px;
+  x: -30px;
 }
 g.axis-outer > g.btn > rect.Reset {
-    x: 25px;
+  x: 25px;
 }
 
-
-svg.FeatureMapViewer > g.hideAxisText   g.axis-all > text {
+svg.FeatureMapViewer > g.hideAxisText g.axis-all > text {
   display: none;
 }
-svg.FeatureMapViewer > g.hideAxisText   g.axis > g.tick {
-  display: none;
-}
-
-
-svg > g.publishMode .graph-btn,
-{
+svg.FeatureMapViewer > g.hideAxisText g.axis > g.tick {
   display: none;
 }
 
+svg > g.publishMode .graph-btn {
+  display: none;
+}
 
 g.axis-outer > .btn.brushed > rect,
 g.axis-outer > .btn.zoomed > rect {
-    fill : "grey";
+  fill: "grey";
 }
 /* colours matching bootstrap .btn-info, .btn-info:focus */
 g.axis-outer > .btn.brushed > rect.Zoom,
 g.axis-outer > .btn.zoomed > rect.Reset {
-    fill : #5bc0de;	/* blue */
+  fill: #5bc0de; /* blue */
 }
 g.axis-outer > .btn.brushed > rect.Zoom:focus,
 g.axis-outer > .btn.brushed > rect.Zoom:hover,
 g.axis-outer > .btn.zoomed > rect.Reset:focus,
-g.axis-outer > .btn.zoomed > rect.Reset:hover
-{
-    fill : #31b0d5;	/* blue */
+g.axis-outer > .btn.zoomed > rect.Reset:hover {
+  fill: #31b0d5; /* blue */
 }
-
 
 /*----------------------------------------------------------------------------*/
 /* Tool tip */
-.toolTipChild
-{
+.toolTipChild {
   max-width: 11em;
   max-height: 20em;
   overflow: auto;
 }
 div.highlightFeature,
-div.toolTip{
+div.toolTip {
   /* seems based on https://github.com/Caged/d3-tip/blob/master/examples/example-styles.css */
-  /* position:absolute; */  /* overridden by d3-tip */
+  /* position:absolute; */ /* overridden by d3-tip */
   text-align: left;
   padding: 0.5em;
   font: 12px sans-serif;
@@ -924,12 +879,11 @@ div.toolTip{
   text-align: center;
 }
 
-div.highlightFeature
-{
-  position:absolute;
+div.highlightFeature {
+  position: absolute;
   /* height : auto; */
   /* width: auto; */
-  opacity:  0.9;
+  opacity: 0.9;
   /* display: inline; */
 }
 
@@ -942,33 +896,33 @@ div.highlightFeature
  */
 /** When dragging, change cursor for all elts other than .current. */
 .axisDrag {
-    cursor: no-drop;
+  cursor: no-drop;
 }
 .axisDrag .stackDropTarget.current {
-    display : inherit;
+  display: inherit;
 }
 .dragTransition .stackDropTarget {
-    pointer-events: none !important;
+  pointer-events: none !important;
 }
 .stackDropTarget {
-    display : none;
-    pointer-events: none;
-    cursor: copy;
+  display: none;
+  pointer-events: none;
+  cursor: copy;
 
-    /* These values are overridden when .current and .dragHover */
-    fill: rgba(80, 80, 255, 0.1);
-    stroke: rgba(255, 80, 80, 0.4);
-    // stroke-width:1px;
-    stroke-dasharray: 3,8;
+  /* These values are overridden when .current and .dragHover */
+  fill: rgba(80, 80, 255, 0.1);
+  stroke: rgba(255, 80, 80, 0.4);
+  // stroke-width:1px;
+  stroke-dasharray: 3, 8;
 }
 .stackDropTarget.current {
-    pointer-events: inherit;
-    cursor: copy;
+  pointer-events: inherit;
+  cursor: copy;
 }
 .stackDropTarget.current.dragHover {
-    fill: rgba(80, 80, 255, 0.2);
-    stroke: rgba(255, 80, 80, 0.6);
-    stroke-dasharray: 2,6;
+  fill: rgba(80, 80, 255, 0.2);
+  stroke: rgba(255, 80, 80, 0.6);
+  stroke-dasharray: 2, 6;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -976,50 +930,44 @@ div.highlightFeature
  *  From http://bootsnipp.com/snippets/featured/multi-level-dropdown-menu-bs3 */
 
 .dropdown-submenu {
-    position: relative;
+  position: relative;
 }
 
-.dropdown-submenu>.dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-top: -6px;
-    margin-left: -1px;
-    -webkit-border-radius: 0 6px 6px 6px;
-    -moz-border-radius: 0 6px 6px;
-    border-radius: 0 6px 6px 6px;
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  -webkit-border-radius: 0 6px 6px 6px;
+  -moz-border-radius: 0 6px 6px;
+  border-radius: 0 6px 6px 6px;
 }
 
-.dropdown-submenu:hover>.dropdown-menu {
-    display: block;
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
 }
-ul.dropdown-menu[role=menu]
-{
-    padding-top: 0px;
+ul.dropdown-menu[role="menu"] {
+  padding-top: 0px;
 }
-div.btn-group > button.btn.btn-default:hover
-{
-    font-weight : bold;
+div.btn-group > button.btn.btn-default:hover {
+  font-weight: bold;
 }
 div.btn-group.open > button.btn.btn-default,
 button.btn.btn-default.dropdown-toggle,
 li.dropdown-submenu,
-ul.dropdown-menu > li.enabled
-{
-    border-width : 2px;
-    background-color: rgba(51, 122, 183, 0.2); /* #337ab7 0.5 opacity*/
+ul.dropdown-menu > li.enabled {
+  border-width: 2px;
+  background-color: rgba(51, 122, 183, 0.2); /* #337ab7 0.5 opacity*/
 }
 ul.dropdown-menu :hover,
-ul.dropdown-menu > li.enabled > a
-{
-    font-weight : bold;
+ul.dropdown-menu > li.enabled > a {
+  font-weight: bold;
 }
-ul.dropdown-menu
-{
-    background-color: #fff;
+ul.dropdown-menu {
+  background-color: #fff;
 }
-ul.dropdown-menu > li > a
-{
-    opacity : 1;
+ul.dropdown-menu > li > a {
+  opacity: 1;
 }
 li.dropdown-submenu > ul.dropdown-menu {
   padding-top: 0px;
@@ -1027,50 +975,48 @@ li.dropdown-submenu > ul.dropdown-menu {
   margin-top: -2px;
 }
 
-.dropdown-submenu>a:after {
-    display: block;
-    content: " ";
-    float: right;
-    width: 0;
-    height: 0;
-    border-color: transparent;
-    border-style: solid;
-    border-width: 5px 0 5px 5px;
-    border-left-color: #ccc;
-    margin-top: 5px;
-    margin-right: -10px;
+.dropdown-submenu > a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #ccc;
+  margin-top: 5px;
+  margin-right: -10px;
 }
 
-.dropdown-submenu:hover>a:after {
-    border-left-color: #fff;
+.dropdown-submenu:hover > a:after {
+  border-left-color: #fff;
 }
 
 .dropdown-submenu.pull-left {
-    float: none;
+  float: none;
 }
 
-.dropdown-submenu.pull-left>.dropdown-menu {
-    left: -100%;
-    margin-left: 10px;
-    -webkit-border-radius: 6px 0 6px 6px;
-    -moz-border-radius: 6px 0 6px 6px;
-    border-radius: 6px 0 6px 6px;
+.dropdown-submenu.pull-left > .dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  -webkit-border-radius: 6px 0 6px 6px;
+  -moz-border-radius: 6px 0 6px 6px;
+  border-radius: 6px 0 6px 6px;
 }
 /* -------------------------------------------------------------------------- */
 /* dataset explorer : .textInput  #nameFilter */
 
 #left-panel-explorer > div > div.panel.panel-primary > .textInput {
-  margin : 0px;
+  margin: 0px;
   margin-top: 2ex;
   margin-right: 1em;
   display: flex;
 }
-div.textInput button.btn-info
-{
+div.textInput button.btn-info {
   margin-left: 1em;
 }
-.textInput #nameFilter
-{
+.textInput #nameFilter {
   margin-left: 10px;
   /* margin-right: 1em; */
   width: 85%;
@@ -1083,45 +1029,37 @@ div.textInput button.btn-info
  * cancel button in the text input field, while there contains text and the
  * focus.  Not effect in Firefox, not supported.
  */
-input#nameFilter::-webkit-search-cancel-button
-{
+input#nameFilter::-webkit-search-cancel-button {
   -webkit-appearance: searchfield-cancel-button;
 }
 
-.textInput > i.glyphicon
-{
+.textInput > i.glyphicon {
   display: none;
   margin: 0.8ex;
-  font-size : large;
+  font-size: large;
 }
 
 /* dataset explorer : search filter buttons */
-.button-row
-{
+.button-row {
   display: flex;
   justify-content: right;
   margin-top: 1ex;
 }
-.button-row > div
-{
+.button-row > div {
   margin-right: 1em;
 }
 /* vertical-align of label in/out-side x-toggle is different, so adjust.  */
-.button-row > label
-{
-  margin-top : 2px;
+.button-row > label {
+  margin-top: 2px;
 }
 /* extra margin and length for x-toggle button with longer label */
-.button-row > .longer
-{
+.button-row > .longer {
   margin-right: 3em;
 }
 /* .longer > div.x-toggle-container > span.x-toggle-container > label > div.x-toggle-btn */
-.longer div.x-toggle-btn
-{
+.longer div.x-toggle-btn {
   width: 6em;
 }
-
 
 /* dataset explorer : filter-group */
 
@@ -1129,8 +1067,8 @@ input#nameFilter::-webkit-search-cancel-button
   margin-top: 1em;
 }
 .filter-groups > ul {
-   list-style-type: none;
-   padding-left: 0px;
+  list-style-type: none;
+  padding-left: 0px;
 }
 .filter-groups > ul > li {
   margin-top: 1em;
@@ -1143,12 +1081,12 @@ li.filter-group > div > span {
   margin: 0 0.5em;
 }
 li.filter-group > div > span:first-child {
-  margin-left : 0;
+  margin-left: 0;
 }
 li.filter-group > div > span:last-child {
-  margin-right : auto;
+  margin-right: auto;
 }
-.filter-groups > ul > li > div > input[name=detailed] {
+.filter-groups > ul > li > div > input[name="detailed"] {
   float: left;
 }
 .filter-groups > ul > li > div > button.btn {
@@ -1164,15 +1102,15 @@ li.filter-group > div > span:last-child {
   float: right;
 }
 #left-panel-explorer .light-border {
-    overflow-y : hidden;
+  overflow-y: hidden;
 }
 .filter-group ul.li-active-extra.vertical {
-  float : left;
-  width : 50%;
+  float: left;
+  width: 50%;
 }
 .light-border > ul > li.active-detail > a {
-  padding-top : 5px;
-  padding-bottom : 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .filter-group-row {
@@ -1190,7 +1128,7 @@ li.filter-group > div > span:last-child {
 }
 
 .line-input-label > input {
-    margin-left : 1.2em;
+  margin-left: 1.2em;
 }
 
 /* dataset explorer : tree browser */
@@ -1206,15 +1144,15 @@ div.selected-server {
 
 .selected-server > .apiServer,
 #left-panel-explorer a.apiServer {
-  border : 7.5px solid;
+  border: 7.5px solid;
   /** matching current bootstrap : navs.scss:84 : $border-radius-base
    * in .nav-tabs > li > a, the top radius is set
    */
   border-radius: 4px;
 }
 #left-panel-explorer ul.nav-tabs.api-server-tabs > li {
-    margin-top: 2ex;
-    margin-bottom: 1ex;
+  margin-top: 2ex;
+  margin-bottom: 1ex;
 }
 #left-panel-explorer ul.nav-tabs.api-server-tabs {
   border-bottom: none;
@@ -1224,11 +1162,10 @@ ul.api-server-tabs > li.active {
   /* could add more .active highlight here if needed.  already have change to background-color - li:not(.active) */
 }
 /* for nodes in explorer tree with colour border - use a wide border to show the colour. */
-.wide-border.btn
-{
-  border-width : 4px;
+.wide-border.btn {
+  border-width: 4px;
 }
-#tab-explorer-parent  ul {
+#tab-explorer-parent ul {
   /* there is enough indent in the li, so 0 is enough here. */
   -webkit-padding-start: 0px;
 }
@@ -1241,7 +1178,7 @@ div#display-ontologies div.tab-content ul ul,
   padding-left: 0px;
 }
 #left-panel-explorer div.tab-content > div > ul > li {
-  padding-left: 5px;    /* reduced from 15px */
+  padding-left: 5px; /* reduced from 15px */
 }
 
 .browse-ontology-tree {
@@ -1250,28 +1187,26 @@ div#display-ontologies div.tab-content ul ul,
   width: 40em;
 }
 .browse-ontology-tree > div > li > ul {
-  padding-left : 1em;
+  padding-left: 1em;
 }
 .browse-ontology-tree > div > li > ul > div > li {
-  padding-top : 4px;
-  padding-bottom : 0px;
+  padding-top: 4px;
+  padding-bottom: 0px;
 }
 
 #formFeatureEdit {
   padding-left: 0px;
 }
 #formFeatureEdit > li {
-  margin-bottom : 1ex;
+  margin-bottom: 1ex;
   & div {
-    margin-top : 1ex;
+    margin-top: 1ex;
   }
 }
-li > span.blockInScope
-{
+li > span.blockInScope {
   display: none;
 }
-li:hover > span.blockInScope
-{
+li:hover > span.blockInScope {
   display: inherit;
   margin-left: 1em;
 }
@@ -1279,7 +1214,7 @@ li:hover > span.blockInScope
 /* <li>-s with .active-detail contain a <div> with additional detail, e.g. a count,
  * which is displayed when active */
 li.active-detail {
-  display:flex;
+  display: flex;
 }
 li.active-detail > div {
   display: none;
@@ -1303,11 +1238,13 @@ ul.counts.li-active-extra > li.active-detail.active {
 }
 
 #left-panel-explorer > div > .panel > div > ul.nav > li.active {
-  border-bottom : none;
+  border-bottom: none;
 }
 
-div#tab-explorer-datasets > ul.list-group > div.ember-view > li.list-group-item 
-{
+div#tab-explorer-datasets
+  > ul.list-group
+  > div.ember-view
+  > li.list-group-item {
   display: inline-block;
 }
 
@@ -1328,14 +1265,13 @@ div#tab-explorer-datasets > ul.list-group > div.ember-view > li.list-group-item
 }
 
 .entryClass0 {
-  background-color : #9bc2e433;
+  background-color: #9bc2e433;
 }
 .entryClass1 {
   /* background-color : #eee; */
 }
 
-div#tab-explorer-datasets  .list-group-item
-{
+div#tab-explorer-datasets .list-group-item {
   margin-right: -0.27em;
 }
 /* whitespace between </li><li> in the generated html is allocated about 1/3 em of white space.
@@ -1353,18 +1289,14 @@ div#tab-explorer-datasets > ul.list-group > div
  */
 
 /* limit this using .list-group-item-info so it doesn't apply to the leaf (white rectangle) */
-div#display-ontologies  .list-group-item.list-group-item-info,
-div#tab-explorer-Ontology  .list-group-item.list-group-item-info
-{
-    padding-right: 0px;
+div#display-ontologies .list-group-item.list-group-item-info,
+div#tab-explorer-Ontology .list-group-item.list-group-item-info {
+  padding-right: 0px;
 }
 /*div#display-ontologies  .list-group-item, */
-div#tab-explorer-Ontology  .list-group-item
-{
-    padding-left: 10px;
+div#tab-explorer-Ontology .list-group-item {
+  padding-left: 10px;
 }
-
-
 
 /* .panel-primary defines a blue (#337ab7) border which is being eclipsed by
  * child elements, in particular the div.tab-explorer-datasets.  Defining some
@@ -1372,65 +1304,52 @@ div#tab-explorer-Ontology  .list-group-item
  * fix would be to work out which child elements are eclipsing the parent border
  * and fix that instead.
  */
-#left-panel-explorer > div > div.panel.panel-primary > div
-{
+#left-panel-explorer > div > div.panel.panel-primary > div {
   margin-left: 1px;
   margin-right: 4px;
 }
 
 /* -------------------------------------------------------------------------- */
-div.drawing-controls > div.drawing
-{
+div.drawing-controls > div.drawing {
   margin-top: 0.5em;
   margin-bottom: 1em;
 }
-.maps-aligned
-{
+.maps-aligned {
   margin-right: 8em;
 }
-div.drawing-controls > div > ul.dropdown-menu
-{
+div.drawing-controls > div > ul.dropdown-menu {
   padding-right: 2em;
 }
 div.drawing-controls > div > a.dropdown-toggle,
-div.drawing-controls > div > a.dropdown-toggle:hover
-{
+div.drawing-controls > div > a.dropdown-toggle:hover {
   text-decoration-line: none;
 }
-div.drawing-controls > div.dropdown:hover > ul.dropdown-menu
-{
+div.drawing-controls > div.dropdown:hover > ul.dropdown-menu {
   display: block;
 }
-div.drawing-controls > div > ul > li
-{
+div.drawing-controls > div > ul > li {
   margin-left: 1em;
 }
-div.drawing-controls > div > ul > li > label
-{
+div.drawing-controls > div > ul > li > label {
   max-width: 85%;
   margin-right: 1em;
 }
-.vspace1 > div
-{
+.vspace1 > div {
   margin: 0.8em 0;
 }
-.bordered
-{
+.bordered {
   /* colour is based on the Draw-Map button colour, rgba(51, 122, 183, 0.2), with increased luminance and reduced opacity */
-  border: 5px solid hsla(208, 56%, 55%, 0.10);
+  border: 5px solid hsla(208, 56%, 55%, 0.1);
 }
-.border-top-none
-{
-  border-top : 0px;
+.border-top-none {
+  border-top: 0px;
 }
-.control-panel
-{
+.control-panel {
   padding: 1em;
 }
 /* -------------------------------------------------------------------------- */
 /** style the flow control buttons in  div.drawing-controls */
-div.drawing-controls.flowButtons .flowButton
-{
+div.drawing-controls.flowButtons .flowButton {
   float: left;
   width: 2em;
   height: 2em;
@@ -1440,16 +1359,14 @@ div.drawing-controls.flowButtons .flowButton
   border-width: 10px;
   /* border-style: dashed; */
 }
-div.drawing-controls.flowButtons .flowButton.selected
-{
+div.drawing-controls.flowButtons .flowButton.selected {
   border-width: 8px;
   /* border-style: solid; */
   border-radius: 0px;
 }
 /* -------------------------------------------------------------------------- */
 /* style the flowButtons popover menu */
-div.drawing-controls.flowButtons div.popover > button
-{
+div.drawing-controls.flowButtons div.popover > button {
   width: 100%;
 }
 
@@ -1462,30 +1379,26 @@ div.drawing-controls.flowButtons div.popover > button
 
 input#checkbox-toggleShowAll,
 input#range-pathOpacity,
-input#range-pathWidth
-{
-/*
+input#range-pathWidth {
+  /*
   width: 10em;
   display: inline-block;
   margin-left: 1em;
 */
 }
-.input-range-group > div > input
-{
-  display : inline-block;
-  width : auto;
+.input-range-group > div > input {
+  display: inline-block;
+  width: auto;
   margin-left: 1em;
   float: right;
 }
-.btn-group
-{
+.btn-group {
   /* modifier is too generic */
   /* margin-right: 2.5em; */
 }
 /* @see setupToggle(), setupToggleModePublish() */
 input#checkbox-toggleShowAll,
-#checkbox-toggleModePublish
-{
+#checkbox-toggleModePublish {
 }
 
 /* -------------------------------------------------------------------------- */
@@ -1493,27 +1406,24 @@ input#checkbox-toggleShowAll,
 /* View : Traits, in div#display-traits */
 
 .traitColourBlock {
-  height : 2ex;
-  width : 3em;
-  display : inline-block;
+  height: 2ex;
+  width: 3em;
+  display: inline-block;
 }
 
 /* -------------------------------------------------------------------------- */
-#choose_path_colour_scale
-{
+#choose_path_colour_scale {
   border-bottom: 0px;
   border-right: 0px;
 }
 
 #choose_path_colour_scale > table > tr > th,
-#choose_path_colour_scale > table > tr > td
-{
+#choose_path_colour_scale > table > tr > td {
   padding: 0 1em;
 }
 /* -------------------------------------------------------------------------- */
-.actual-row
-{
-  width:100%;
+.actual-row {
+  width: 100%;
   margin-top: 20px;
   margin-bottom: 10px;
 }
@@ -1527,8 +1437,8 @@ ul#display-blocks > li.selected,
 /* indicate that the axis title text can be clicked to show axis-menu. */
 g.axis-outer > g.axis-all > text:hover {
   color: orange;
-  font-style : italic;
-  font-weight : bolder;
+  font-style: italic;
+  font-weight: bolder;
   /* transform : translate(-1px, -1px); */ /* causes text-anchor to change also, when split axis */
 }
 g.axis-outer.selected /* > g.axis-all > g.axis > */ text {
@@ -1538,91 +1448,76 @@ g.axis-outer.selected /* > g.axis-all > g.axis > */ text {
  * configureAxisSubTitleMenu() has a long title, so centre the buttons.
  */
 div.popover/*.axis-menu*/ div.popover-content {
-  text-align: center;   /* equiv bootstrap .text-center */
+  text-align: center; /* equiv bootstrap .text-center */
 }
 /* -------------------------------------------------------------------------- */
 /* for controlling display of devel monitoring info. */
-.devel-visible
-{
-    display : none;
+.devel-visible {
+  display: none;
 }
-.devel .devel-visible
-{
-    display : inherit;
+.devel .devel-visible {
+  display: inherit;
 }
-.devel-visible
-{
+.devel-visible {
   height: 65px;
   overflow-y: scroll;
 }
 
 /* -------------------------------------------------------------------------- */
 /* for controlling display of (left panel : view) "Chart Options". */
-.chart-options
-{
-    display : none;
+.chart-options {
+  display: none;
 }
-.chartOptions .chart-options
-{
-    display : inherit;
+.chartOptions .chart-options {
+  display: inherit;
 }
 /* -------------------------------------------------------------------------- */
 /* for controlling display of width resizer in split axis. */
-.axis-use .resizer
-{
-    display : none;
+.axis-use .resizer {
+  display: none;
 }
-.axis2dResizer .axis-use .resizer
-{
-    display : inherit;
+.axis2dResizer .axis-use .resizer {
+  display: inherit;
 }
 /* -------------------------------------------------------------------------- */
 /* When the feature flag (ff) alpha is not defined, don't display the elements with class ff-alpha.  */
 body div > ul > li > div > div.btn-group.ff-alpha,
 ul.list-group > li.list-group-item.ff-alpha,
-.ff-alpha
-{
-    display : none;
+.ff-alpha {
+  display: none;
 }
-body.alpha .ff-alpha
-{
-    display : inherit;
+body.alpha .ff-alpha {
+  display: inherit;
 }
 /* -------------------------------------------------------------------------- */
-.goto-feature-range
-{
-    display : none;
+.goto-feature-range {
+  display: none;
 }
-.gotoFeature .goto-feature-range
-{
-    display : inherit;
+.gotoFeature .goto-feature-range {
+  display: inherit;
 }
 /* -------------------------------------------------------------------------- */
-div#goto-feature > div
-{
-    display : inline-block;
+div#goto-feature > div {
+  display: inline-block;
 }
-.goto-ensemble > div
-{
-  display : flex;
-  margin : 1em;
+.goto-ensemble > div {
+  display: flex;
+  margin: 1em;
 }
-.goto-ensemble > div > a
-{
-  margin-left : auto;
-  margin-right : 1em;
+.goto-ensemble > div > a {
+  margin-left: auto;
+  margin-right: 1em;
 }
 /* -------------------------------------------------------------------------- */
 /* .tooltip-inner is within .ember-popover or .ember-tooltip */
-.tooltip-inner
-{
+.tooltip-inner {
   /* need !important to gain precedence over ember-bootstrap/bootstrap/_tooltip.scss.  */
-  background-color : #f2f2f2 !important;
+  background-color: #f2f2f2 !important;
   color: #000 !important;
 }
 .ember-tooltip {
   background: #337ab7a0;
-  text-shadow : none;
+  text-shadow: none;
   border-radius: 8px;
 }
 .tooltip-inner {
@@ -1633,8 +1528,6 @@ div#goto-feature > div
   align-items: center;
   align-content: center;
 }
-
-
 
 /* -------------------------------------------------------------------------- */
 
@@ -1647,7 +1540,7 @@ div#goto-feature > div
   margin: 3px;
 }
 .feature-list > ul.nav.nav-tabs > li:not(.active) > div {
-    display : none;
+  display: none;
 }
 .feature-list > ul.nav.nav-tabs > li > div {
   float: right;
@@ -1655,14 +1548,13 @@ div#goto-feature > div
 
 /* -------------------------------------------------------------------------- */
 
-.margin-1em
-{
-  margin : 1em;
+.margin-1em {
+  margin: 1em;
 }
 
 .panel-collapse-button {
-  padding:0 5px 0 5px;
-  border-radius:0;
+  padding: 0 5px 0 5px;
+  border-radius: 0;
   z-index: 50;
 }
 
@@ -1673,51 +1565,44 @@ div#goto-feature > div
 }
 
 .right-panel-genotype,
-.right-panel-genotype > .matrix-view
-{
+.right-panel-genotype > .matrix-view {
   height: 100%;
-  width : 100%;
-  display : flex;
+  width: 100%;
+  display: flex;
 }
-.gtResizeHeader
-{
-  display : flex;
-  flex-direction : column;
+.gtResizeHeader {
+  display: flex;
+  flex-direction: column;
   /* to place the arrow outside-left, use width : 0px; and .resizer.vertical : right : 20px instead of inherit.
    * That is fine except when the right panel is placed below the graph - no space on left.
    */
   overflow-x: visible;
   width: 0px;
 }
-.gtResizeHeader > div
-{
+.gtResizeHeader > div {
   /* border : solid green 1px; */
 }
 
 #observational-table {
   /* flex: 1; */
-  font-size : var(--matrixViewFontSize);
+  font-size: var(--matrixViewFontSize);
 }
 #observational-table th,
-#observational-table td
-{
-  line-height : var(--matrixViewLineHeight);
-  height : var(--matrixViewHeight);
+#observational-table td {
+  line-height: var(--matrixViewLineHeight);
+  height: var(--matrixViewHeight);
 }
 
-#observational-table .handsontable th
-{
+#observational-table .handsontable th {
   /* default 'top' causes a few px empty space at the bottom of column headers.  */
   vertical-align: inherit;
 }
 
-#observational-table .wtHolder
-{
+#observational-table .wtHolder {
   /* height : fit-content !important; */
 }
 /* .col-sample */
-#observational-table .head
-{
+#observational-table .head {
   /* used --matrixViewColumnHeaderHeight * 0.84, and the threshold was at 250px, so 250px * (1 - .84) -> 40px */
   margin-top: calc(var(--matrixViewColumnHeaderHeight) - 40px);
   margin-left: 7px;
@@ -1726,18 +1611,15 @@ div#goto-feature > div
   /* space above dataset colour border-left rectangle. */
   padding-left: 10px;
 }
-#observational-table .head.col-Position
-{
+#observational-table .head.col-Position {
   margin-left: 40px;
 }
 
-#observational-table td.col-Alt
-{
+#observational-table td.col-Alt {
   border-right-width: 5px;
   border-right-color: rgb(243, 243, 243);
 }
-#observational-table th > div > span.colHeader > .col-Dataset-Name
-{
+#observational-table th > div > span.colHeader > .col-Dataset-Name {
   /* handsontable th has white-space: nowrap, so override that */
   white-space: initial;
   /* datasetId may be long, without spaces. */
@@ -1748,8 +1630,7 @@ div#goto-feature > div
   width: 13em;
   text-align: left;
 }
-.col-Dataset-Name > i
-{
+.col-Dataset-Name > i {
   left: -20px;
   top: 14px;
   color: green;
@@ -1767,18 +1648,17 @@ div#goto-feature > div
 /* div.ht_clone_top_left_corner > div.wtHolder > div.wtHider > div.wtSpreader > table.htCore > thead > tr > th > div > span.colHeader.cornerHeader */
 div.ht_clone_top_left_corner span.colHeader.cornerHeader {
   /* display: block; */
-  white-space : normal;
-  margin-top : 5ex;
+  white-space: normal;
+  margin-top: 5ex;
 }
 #observational-table:not(.gtMergeRows) span.colHeader.cornerHeader {
   /* depends on rowHeaders() width, i.e.  length of
    *  (gtMergeRows ? Feature Position : Feature name)
    */
-  width : 11em;
+  width: 11em;
 }
 
-#topLeftDialog
-{
+#topLeftDialog {
   position: fixed;
   /* require a minimum of 181 to be above the HandsOnTable elements near this element. */
   z-index: 181;
@@ -1790,8 +1670,6 @@ div.ht_clone_top_left_corner span.colHeader.cornerHeader {
   white-space: nowrap;
 }
 
-
-
 //------------------------------------------------------------------------------
 
 /* use specificity #observational-table to override .handsontable default
@@ -1802,92 +1680,102 @@ div.ht_clone_top_left_corner span.colHeader.cornerHeader {
 /* copyNum_0 : Ref */
 #observational-table td.copyNum_0 {
   /** copyNum_0, 2 colours from MS Teams 2023Mar10 chat 14:36, KLF */
-  background-color : #b1c1e8;  /* pale blue/grey. was  #5cb85c green, prev orange*/
+  background-color: #b1c1e8; /* pale blue/grey. was  #5cb85c green, prev orange*/
 }
 /* copyNum_1 : Het */
 #observational-table td.copyNum_1 {
-  background-color : #d9edf7;  /* near-white */
+  background-color: #d9edf7; /* near-white */
 }
 /* copyNum_2 : Alt */
 #observational-table td.copyNum_2 {
-  background-color : #ffc8ae; /* pale orange, was #337ab7 blue*/
+  background-color: #ffc8ae; /* pale orange, was #337ab7 blue*/
 }
 
 #observational-table td.relativeColour_equal {
-  background-color : #5cb85c; /*green*/
+  background-color: #5cb85c; /*green*/
 }
 #observational-table td.relativeColour_unequal {
-  background-color : red;
+  background-color: red;
 }
 
 #observational-table td.nucleotide_A {
-  background-color : #5cb85c; /*green*/
+  background-color: #5cb85c; /*green*/
 }
 #observational-table td.nucleotide_C {
-  background-color : #337ab7; /*blue*/
+  background-color: #337ab7; /*blue*/
 }
 #observational-table td.nucleotide_G {
-  background-color : red;
+  background-color: red;
 }
 #observational-table td.nucleotide_T {
-  background-color : black;
+  background-color: black;
 }
 
 #observational-table td.featureIsFilter {
   border: 2px dashed green;
-  border-left-width : 23px !important;
+  border-left-width: 23px !important;
 }
 
 // -----------------------------------------------------------------------------
 
 // used in #observational-table / genotype view, to show colour of distinct alleles.
 // .diagonal-triangle.allele2-* applies for Het.
-.diagonal-triangle.allele2-nucleotide_A
-{
-  background-image : linear-gradient(130deg, #fff0 40%, #5cb85c 0%) !important;  /*green*/
+.diagonal-triangle.allele2-nucleotide_A {
+  background-image: linear-gradient(
+    130deg,
+    #fff0 40%,
+    #5cb85c 0%
+  ) !important; /*green*/
 }
-.diagonal-triangle.allele2-nucleotide_C
-{
-  background-image : linear-gradient(130deg, #fff0 40%, #337ab7 0%) !important;  /*blue*/
+.diagonal-triangle.allele2-nucleotide_C {
+  background-image: linear-gradient(
+    130deg,
+    #fff0 40%,
+    #337ab7 0%
+  ) !important; /*blue*/
 }
-.diagonal-triangle.allele2-nucleotide_G
-{
-  background-image : linear-gradient(130deg, #fff0 40%, red 0%) !important;
+.diagonal-triangle.allele2-nucleotide_G {
+  background-image: linear-gradient(130deg, #fff0 40%, red 0%) !important;
 }
-.diagonal-triangle.allele2-nucleotide_T
-{
-  background-image : linear-gradient(130deg, #fff0 40%, black 0%) !important;
+.diagonal-triangle.allele2-nucleotide_T {
+  background-image: linear-gradient(130deg, #fff0 40%, black 0%) !important;
 }
 
 /* copyNum_0 : Ref */
-.diagonal-triangle.allele2-.copyNum_0
-{
-  background-image : linear-gradient(130deg, #fff0 40%, #5cb85c 0%) !important;  /*green, was orange*/
+.diagonal-triangle.allele2-.copyNum_0 {
+  background-image: linear-gradient(
+    130deg,
+    #fff0 40%,
+    #5cb85c 0%
+  ) !important; /*green, was orange*/
 }
 /* copyNum_1 : Het */
-.diagonal-triangle.allele2-.copyNum_1
-{
-  background-image : linear-gradient(130deg, #fff0 40%, #d9edf7 0%) !important;  /* near-white */
+.diagonal-triangle.allele2-.copyNum_1 {
+  background-image: linear-gradient(
+    130deg,
+    #fff0 40%,
+    #d9edf7 0%
+  ) !important; /* near-white */
 }
 /* copyNum_2 : Alt */
-.diagonal-triangle.allele2-.copyNum_2
-{
-  background-image : linear-gradient(130deg, #fff0 40%, #337ab7 0%) !important;  /*blue*/
+.diagonal-triangle.allele2-.copyNum_2 {
+  background-image: linear-gradient(
+    130deg,
+    #fff0 40%,
+    #337ab7 0%
+  ) !important; /*blue*/
 }
 
 //------------------------------------------------------------------------------
 
 .radio-button-list,
-.gt-dataset-filter-icon
-{
+.gt-dataset-filter-icon {
   display: inline-block;
 }
-.gt-dataset-filter-icon span.glyphicon-filter
-{
+.gt-dataset-filter-icon span.glyphicon-filter {
   font-size: 45px;
 }
-.gt-dataset-filter-icon span.overlay-text
-{
+.gt-dataset-filter-icon span.overlay-text {
   font-size: 35px;
   position: relative;
   left: -43px;
@@ -1899,7 +1787,6 @@ div.ht_clone_top_left_corner span.colHeader.cornerHeader {
   color: white;
 }
 
-
 // -----------------------------------------------------------------------------
 
 // used to fit names which may be long (dataset.name, trait.name) in regular spaces (ul / li)
@@ -1908,7 +1795,7 @@ div.ht_clone_top_left_corner span.colHeader.cornerHeader {
   /*white-space: nowrap;*/
   overflow: hidden;
   /*text-overflow: ellipsis;*/
-  display:inline-block;
+  display: inline-block;
   vertical-align: middle;
   padding-left: 20px;
   padding-right: 10px;
@@ -1922,8 +1809,7 @@ div.ht_clone_top_left_corner span.colHeader.cornerHeader {
 li.d-inline-block {
   display: inline-block;
 }
-ul.borderless li
-{
+ul.borderless li {
   border: none;
 }
 
@@ -1931,34 +1817,27 @@ div#tab-explorer-parent > ul > li > ul > li > ul > li {
   background-color: inherit;
 }
 
-
-
 /* -------------------------------------------------------------------------- */
 /* Use all of width provided by split-view. */
-div#left-panel
-{
-  width : 100%;
+div#left-panel {
+  width: 100%;
 }
 
-div#left-panel > ul
-{
-  display : block;
+div#left-panel > ul {
+  display: block;
 }
 
-div#left-panel > div
-{
+div#left-panel > div {
   height: 100%;
 }
-div#left-panel > div > div.tab-content
-{
+div#left-panel > div > div.tab-content {
   height: 100%;
   overflow-y: hidden;
 }
 
-div#left-panel > div > div.tab-content > div.tab-pane
-{
+div#left-panel > div > div.tab-content > div.tab-pane {
   height: inherit;
-  overflow-y: auto;	/* possibly scrollbar-gutter in future. */
+  overflow-y: auto; /* possibly scrollbar-gutter in future. */
 }
 
 #left-panel > div > div.tab-content > div.tab-pane > div:last-child {
@@ -1977,61 +1856,54 @@ ul.config-list {
 
 /** spacing between floated buttons */
 .div-float-button > button.pull-right {
-  margin-left : 1em;
+  margin-left: 1em;
 }
 
 /*------------------------------------*/
 /* in featureSearch results, wrap block names  */
-div#left-panel-feature-search > div > div > div > ul > li > div
-{
+div#left-panel-feature-search > div > div > div > ul > li > div {
   overflow-wrap: break-word;
   text-indent: 1em;
 }
-div#left-panel-feature-search > div > div > div > ul > li > div > button
-{
-    float : left;
+div#left-panel-feature-search > div > div > div > ul > li > div > button {
+  float: left;
 }
 /*------------------------------------*/
 /* view-controls : text sub-label (div or span)  */
 div.genotype ul.view-controls > li > input,
-div.genotype ul.view-controls > li > button,
-{
-  margin-left : 3em;
+div.genotype ul.view-controls > li > button {
+  margin-left: 3em;
 }
-ul.view-controls > li > div > .sub-label  {
-  margin-left:2em;
+ul.view-controls > li > div > .sub-label {
+  margin-left: 2em;
   vertical-align: bottom;
 }
 ul.view-controls > li > div > .sub-label > span {
-  margin-left:1.2em;
+  margin-left: 1.2em;
 }
 #axisLayerModulusText {
   margin-left: 3em;
 }
 #axisLayerModulusText,
 #sbSizeThresholdText {
-  width : 6.5em;
+  width: 6.5em;
   text-align: end;
 }
 
 /* 2 elements adjacent horizontally. */
-.list-group-item.horiz-2
-{
-  display : flex;
-  gap : 7%;
-  & > div
-  {
-    width : 50%;
+.list-group-item.horiz-2 {
+  display: flex;
+  gap: 7%;
+  & > div {
+    width: 50%;
   }
 }
 
 /* enable label to be inline with input checkbox.  used within .list-group-item */
-.inline-margin
-{
+.inline-margin {
   display: inline;
   margin-left: 0.5em;
 }
-
 
 /*------------------------------------*/
 
@@ -2044,8 +1916,7 @@ ul.view-controls > li > div > .sub-label > span {
   padding-bottom: 10px;
 }
 
-div#left-panel-upload select
-{
+div#left-panel-upload select {
   max-width: 100%;
   margin-bottom: 5px;
 }
@@ -2055,11 +1926,11 @@ div#left-panel-upload select
  * font so that the ^ generated by bufferSlice() aligns with the
  * character position of the error.
  */
-textarea.panel-body
-{
+textarea.panel-body {
   width: 100%;
   height: 45ex;
-  font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Liberation Mono", Menlo, Monaco, Consolas, monospace;
+  font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", "Liberation Mono",
+    Menlo, Monaco, Consolas, monospace;
 }
 
 .blast-results {
@@ -2067,16 +1938,16 @@ textarea.panel-body
 }
 
 .feature-list.active-input > div > div > div.from-input > a {
-    background-color : #e8e8f7;
+  background-color: #e8e8f7;
 }
 .feature-list:not(.active-input) > div > div > div:not(.from-input) > a {
-    background-color : #e8e8f7;
+  background-color: #e8e8f7;
 }
 .feature-list > div > span {
   margin-right: 2em;
 }
 .feature-list > div > textarea {
-    height: 28ex;     /* approx 2.5ex per line */
+  height: 28ex; /* approx 2.5ex per line */
 }
 /* -------------------------------------------------------------------------- */
 /* applies in this context :
@@ -2085,7 +1956,7 @@ textarea.panel-body
 /* could use .list-unstyled, but it implies padding-left:0 */
 ul.feature-found {
   list-style-type: none;
-  text-align : center;
+  text-align: center;
   /* override user-agent stylesheet for <ul> (Chrome, Firefox) */
   -webkit-padding-start: inherit;
   -moz-padding-start: inherit;
@@ -2104,40 +1975,35 @@ body > div.ember-popover {
 
 /* -------------------------------------------------------------------------- */
 
-.right-split
-{
-    width : 100%
+.right-split {
+  width: 100%;
 }
 
-#right-panel
-{
-  display : flex;
-  flex-direction : column;
-  justify-content : flex-start;
+#right-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
-#right-panel-content:not(.right-panel-genotype)
-{
-  flex-grow : 1;
-  flex-basis : calc(100% - 78px);
-  max-height : calc(100% - 78px);
+#right-panel-content:not(.right-panel-genotype) {
+  flex-grow: 1;
+  flex-basis: calc(100% - 78px);
+  max-height: calc(100% - 78px);
 }
-#right-panel-content.right-panel-paths:not(.right-panel-genotype)
-{
-  flex-basis : calc(100% - 220px);
-  max-height : calc(100% - 220px);
+#right-panel-content.right-panel-paths:not(.right-panel-genotype) {
+  flex-basis: calc(100% - 220px);
+  max-height: calc(100% - 220px);
 }
 
 body.tablesPanelRight .dataset-description > h4 {
-  max-width : 300px;
+  max-width: 300px;
 }
 body:not(.tablesPanelRight) .dataset-description {
-  float : left;
+  float: left;
   margin-right: 3em;
 }
 body:not(.tablesPanelRight) .metaeditor-panel {
-  display : flow-root;
+  display: flow-root;
 }
-
 
 #right-panel-content.right-panel-dataset,
 // #right-panel-content.right-panel-genotype,
@@ -2146,61 +2012,53 @@ body:not(.tablesPanelRight) .metaeditor-panel {
 }
 /* .view-controls */
 /* original : #right-panel-content.right-panel-genotype input#range-maf */
-.input-range-text input[type=range] {
-  width : 100%;
+.input-range-text input[type="range"] {
+  width: 100%;
 }
 /** .small-number is used in manage-genotype near InputRangeText so these are preferably the same width.  */
 .small-number,
-.input-range-text input[type=text] {
-  width : 2.9em;
+.input-range-text input[type="text"] {
+  width: 2.9em;
 }
 
 .haplotypeFilters,
-.featureFilters
-{
-  margin-left : 1em;
+.featureFilters {
+  margin-left: 1em;
 }
 
 /* .haplotypeFilters is also used for variantInterval */
-.haplotypeFilters ul .list-group-item
-{
+.haplotypeFilters ul .list-group-item {
   /* reduce vertical padding.  Inherit horizontal padding : 15px from
    * bootstap list-group.scss : .list-group-item */
   padding: 3px 15px;
 }
 /* gap between colour block and tSNP number (text) */
-.haplotypeFilters ul .list-group-item > div > span
-{
+.haplotypeFilters ul .list-group-item > div > span {
   margin-right: 1em;
 }
 
-.border-none-lgi .list-group-item
-{
-  border : none;
+.border-none-lgi .list-group-item {
+  border: none;
 }
-li.list-group-item.horiz-2 > div.samplesLimit
-{
-  width : 19em;
-  margin-top : 2em;
+li.list-group-item.horiz-2 > div.samplesLimit {
+  width: 19em;
+  margin-top: 2em;
 }
 
-
-body.tablesPanelRight #right-panel-content.right-panel-dataset > div
-{
+body.tablesPanelRight #right-panel-content.right-panel-dataset > div {
   min-height: 650px;
 }
 #right-panel-content > .right-panel-paths {
-    display : none;
+  display: none;
 }
 #right-panel-content.right-panel-paths > .right-panel-paths {
-    display : block;
+  display: block;
 }
 
 /* -------------------------------------------------------------------------- */
 /* JSON editor, in RHS panel */
 
-#right-panel-content.right-panel-dataset
-.dataset-table {
+#right-panel-content.right-panel-dataset .dataset-table {
   width: inherit;
   margin-bottom: 0;
 }
@@ -2228,29 +2086,28 @@ div.metaeditor-panel div.jsoneditor-treepath {
 }
 
 div.metaeditor-panel div.jsoneditor {
-  border: 1px solid #d3d3d3
+  border: 1px solid #d3d3d3;
 }
 
 div.meta-row > div > div {
-  display : inline-block;
+  display: inline-block;
 }
 div.meta-row > div > button {
-  display : inline-block;
-  margin-left : 2em;
+  display: inline-block;
+  margin-left: 2em;
 }
-
 
 /* ember-content-editable/addon/styles/addon.css does  [contenteditable] { ...  -webkit-user-modify: read-write-plaintext-only; }
  * which should probably be   [contenteditable=true] ...
  */
-.jsoneditor-field[contenteditable=false],
-.jsoneditor-value[contenteditable=false] {
-    -webkit-user-modify: read-only;
+.jsoneditor-field[contenteditable="false"],
+.jsoneditor-value[contenteditable="false"] {
+  -webkit-user-modify: read-only;
 }
 
 /* in the read-only json-editor, disable the buttons */
 div.metaeditor-panel div.jsoneditor-tree button.jsoneditor-contextmenu-button {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -2265,78 +2122,65 @@ div.metaeditor-panel div.jsoneditor-tree button.jsoneditor-contextmenu-button {
    * clipped when dataset name is long enough to widen the dialog. */
   overflow-y: scroll;
 }
-/*#right-panel-content.right-panel-dataset >*/ .axis-brushes > table > div > textarea,
-textarea.vcfGenotypeText
-{
+/*#right-panel-content.right-panel-dataset >*/
+.axis-brushes > table > div > textarea,
+textarea.vcfGenotypeText {
   width: 50em;
   height: 20ex;
   overflow: auto;
 }
-textarea.vcfGenotypeSamplesText
-{
+textarea.vcfGenotypeSamplesText {
   height: 20ex;
 }
 div.genotype > div > div > textarea,
-.vcfGenotypeSamplesSelected
-{
+.vcfGenotypeSamplesSelected {
   width: 28em;
 }
 /* textarea */
-.selectedSamplesInput
-{
-  height : 15ex;
-  overflow-y : auto;
+.selectedSamplesInput {
+  height: 15ex;
+  overflow-y: auto;
   resize: both;
 }
 
-.natural-search > div > textarea
-{
-  min-width : 50em;
-  min-height : 20ex;
+.natural-search > div > textarea {
+  min-width: 50em;
+  min-height: 20ex;
 }
-.natural-search .ember-tooltip-inner
-{
+.natural-search .ember-tooltip-inner {
   min-width: 40em;
   /* min-height: 10em; */
   padding: 1em;
 }
 
-.dataset-graph.ember-modal-dialog
-{
-  width : 100%;
+.dataset-graph.ember-modal-dialog {
+  width: 100%;
 }
-.dataset-graph > div > *
-{
-  margin-left : 1em;
+.dataset-graph > div > * {
+  margin-left: 1em;
 }
 
 /** Hide the panel-container-s when toggled off */
-#right-panel-content.right-panel-genotype.hideControls .panel-parent
-{
-  display : none;
+#right-panel-content.right-panel-genotype.hideControls .panel-parent {
+  display: none;
 }
 
-div.genotype ul.list-group
-{
-  width:40em;
+div.genotype ul.list-group {
+  width: 40em;
 }
-div.genotype ul.list-group.threshold-sliders
-{
-  width : 47em;
+div.genotype ul.list-group.threshold-sliders {
+  width: 47em;
 }
 
-.panel-parent > .panel-primary
-{
+.panel-parent > .panel-primary {
   width: fit-content;
   margin-right: 1em;
 }
-.genotype-controls > .form-control
-{
+.genotype-controls > .form-control {
   width: 75%;
   resize: both;
 }
-.panel-parent
-{
+.panel-parent {
   width: 1200px;
   display: flex;
   flex-wrap: wrap;
@@ -2348,38 +2192,32 @@ div.genotype ul.list-group.threshold-sliders
 /** plan to add .panel-children-are-closed when all panel-container children have showComponent=false.
  * In the case of manage-genotype, the 3 closed panel-container-s can be placed in a horizontal line.
   */
-.panel-parent.panel-children-are-closed
-{
-  display : flex;
+.panel-parent.panel-children-are-closed {
+  display: flex;
 }
-.panel-parent.panel-children-are-closed > .panel-primary
-{
-  flex : 1;
-  margin-right : 1em;
+.panel-parent.panel-children-are-closed > .panel-primary {
+  flex: 1;
+  margin-right: 1em;
 }
 
-.vcfGenotypeSamplesSelected
-{
- border: solid 4px lightblue;
- overflow-y: auto;
- max-height: 20ex;
+.vcfGenotypeSamplesSelected {
+  border: solid 4px lightblue;
+  overflow-y: auto;
+  max-height: 20ex;
 }
-.right-panel-genotype
-{
+.right-panel-genotype {
 }
-div.genotype
-{
+div.genotype {
   margin: 1em;
 }
 /* vertical space above labelled inputs in manage-genotype : lookup inputs dialog.
  * Don't apply to the x-toggle label (in div.x-toggle-component >) 
   */
 div.genotype span.x-toggle-container > label {
-  margin-top : inherit;
+  margin-top: inherit;
 }
-div.genotype label
-{
-  margin-top : 2em;
+div.genotype label {
+  margin-top: 2em;
 }
 
 /* change default color of <a> to match the nearby buttons.   */
@@ -2387,50 +2225,41 @@ div.genotype label
   color: white;
 }
 
-.ember-modal-dialog.genotype > .btn
-{
+.ember-modal-dialog.genotype > .btn {
   margin: 1em 0em;
   margin-left: 3em;
 }
 
 /* added for manage-genotype, but applicable to other modals also. */
-.ember-modal-dialog
-{
+.ember-modal-dialog {
   max-height: calc(100vh - 20px);
   overflow-y: auto;
 }
-.ember-modal-dialog div.genotype ul.list-group
-{
+.ember-modal-dialog div.genotype ul.list-group {
   overflow-y: auto;
   max-height: 40vh;
 }
-.ember-modal-dialog.genotype
-{
+.ember-modal-dialog.genotype {
   min-width: 40em;
   min-height: 79ex;
 }
-.ember-modal-dialog.genotype > div.ember-view > div.tab-content
-{
+.ember-modal-dialog.genotype > div.ember-view > div.tab-content {
   min-width: 50em;
   min-height: 88ex;
 }
 
-
-.genotype li.list-group-item
-{
-  padding : inherit;
+.genotype li.list-group-item {
+  padding: inherit;
 }
 
-.sample-count
-{
-  margin-left : 1em;
+.sample-count {
+  margin-left: 1em;
 }
 .genotype-controls {
   display: flex;
   margin-top: 1em;
 }
-.margin-top
-{
+.margin-top {
   margin-top: 1em;
 }
 
@@ -2449,7 +2278,7 @@ div.genotype label
 }
 .lookup-line > .interval-group > label {
   max-width: 10em;
-  margin-top : 0px;
+  margin-top: 0px;
 }
 .lookup-line > .interval-group > div > div {
   display: flex;
@@ -2458,9 +2287,8 @@ div.genotype label
 
 /*----------------------------------------------------------------------------*/
 
-.gtDatasetIdsToFilter > select
-{
-  width : fit-content;
+.gtDatasetIdsToFilter > select {
+  width: fit-content;
   /* overridden by : select[multiple] { height: auto; }
   height : fit-content;
    */
@@ -2469,21 +2297,16 @@ div.genotype label
 /*----------------------------------------------------------------------------*/
 
 /** panel/dataset-intersection-dialog.hbs input .chooseK */
-.ember-modal-dialog div.genotype > div > input.ember-text-field
-{
-  width : 2em;
+.ember-modal-dialog div.genotype > div > input.ember-text-field {
+  width: 2em;
 }
 
-div.genotype .ember-tooltip-inner
-{
-  min-width : 30em;
+div.genotype .ember-tooltip-inner {
+  min-width: 30em;
 }
-div.genotype .ember-tooltip
-{
+div.genotype .ember-tooltip {
   max-width: 30em;
 }
-
-
 
 /* -------------------------------------------------------------------------- */
 
@@ -2491,11 +2314,10 @@ div.genotype .ember-tooltip
   height: 100%;
 }
 
-
 /* div#table-brushed.handsontable */
 
 table.htCore > tbody > tr > td.editDialog {
-  cursor : context-menu;
+  cursor: context-menu;
 }
 table.htCore > tbody > tr > td.editDialog:hover {
   /* text-shadow: #337ab730 5px 0 10px; */
@@ -2508,7 +2330,7 @@ table.htCore > tbody > tr > td.editDialog:hover {
   display: flex;
   margin-bottom: 1em;
 }
-.paths-table .optionControls  > div {
+.paths-table .optionControls > div {
   flex-grow: 1;
 }
 
@@ -2521,7 +2343,7 @@ table.htCore > tbody > tr > td.editDialog:hover {
 }
 
 .paths-table div.panel-body > div.btn-group > div > button > a {
-  color : inherit;
+  color: inherit;
 }
 
 .paths-table td.contextual-cell.numeric {
@@ -2539,14 +2361,14 @@ table.htCore > tbody > tr > td.editDialog:hover {
 /* -------------------------------------------------------------------------- */
 
 .style-editor {
-    margin: 1em;
-    margin-left: 2em;
+  margin: 1em;
+  margin-left: 2em;
 }
 .style-editor > button {
-    border: 0px;
-    background: none;
-    /* touch colour block on right. */
-    margin-right: -3px;
+  border: 0px;
+  background: none;
+  /* touch colour block on right. */
+  margin-right: -3px;
   padding: inherit;
 }
 .style-editor > button:hover {
@@ -2576,10 +2398,9 @@ table.htCore > tbody > tr > td.editDialog:hover {
   outline-style: outset;
 }
 
-
 /** Hide the down-arrow beside the colour block  */
 .sp-dd {
-  display : none;
+  display: none;
 }
 /* increase to match button img. 70px + 2 */
 .sp-preview {
@@ -2597,17 +2418,17 @@ table.htCore > tbody > tr > td.editDialog:hover {
   row-gap: 2ex;
 }
 .labelled-inputs div.input-label {
-  grid-column : 1;
+  grid-column: 1;
 }
 .labelled-inputs input {
-  grid-column : 2;
+  grid-column: 2;
 }
 .new-datasource-modal input {
   width: 100%;
 }
 /* .new-datasource-modal */
 textarea#ndm_chrMapping {
-  min-height : 30ex;
+  min-height: 30ex;
 }
 /* Copied from the app's panel colours (bootstrap). */
 .modal-header {
@@ -2618,23 +2439,21 @@ textarea#ndm_chrMapping {
   border-top-right-radius: 5px;
 }
 .modal-body {
-  background-color : #d9edf7;
+  background-color: #d9edf7;
 }
 .modal-footer {
-  background-color : lightblue;
+  background-color: lightblue;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
 }
 /* Currently only applied to .modal-header, but this can be applied to all
  * span.glyphicon in synchrony with removing &nbsp; after each {{elem/icon-base ... }} */
-.modal-header
-span.glyphicon {
-    margin-right: 1em;
+.modal-header span.glyphicon {
+  margin-right: 1em;
 }
 /* -------------------------------------------------------------------------- */
 
-.select-parent  /* modal */
-{
+.select-parent  /* modal */ {
   font-size: larger;
 }
 
@@ -2645,31 +2464,30 @@ span.glyphicon {
 }
 
 /* for .axis-menu,  sometimes .tooltip  */
-.axis-menu.ember-popover
-{
+.axis-menu.ember-popover {
   padding: 6px;
   /* from .panel-primary > .panel-heading  */
-  background-color: #337ab7;  /* surrounds inner,  like border-color */
-  max-width : inherit;
-  margin-bottom : 0px;
+  background-color: #337ab7; /* surrounds inner,  like border-color */
+  max-width: inherit;
+  margin-bottom: 0px;
 }
 .axis-menu-inner > div > button.close {
-  float : right;
+  float: right;
 }
 .axis-menu-inner {
   /* from .list-group-item-info */
   color: #31708f;
   background-color: #d9edf7;
-  padding : 0.8em;
+  padding: 0.8em;
 }
 .axis-menu-inner > div {
-  min-width : 30em;
+  min-width: 30em;
 }
 .axis-menu-inner .menu-icons {
   padding: 9px 14px;
   background: white;
   width: fit-content;
-  margin : auto;
+  margin: auto;
   border-radius: 5px;
   margin-bottom: 1em;
 }
@@ -2678,13 +2496,14 @@ span.glyphicon {
   margin: auto;
   width: fit-content;
 }
-/*.axis-menu-inner > div >*/ ul.dataBlocks {
+/*.axis-menu-inner > div >*/
+ul.dataBlocks {
   background-color: white;
   padding: 0.8em;
   border-radius: 5px;
 }
 .axis-menu-inner > div > div.name {
-  margin-bottom : 1em;
+  margin-bottom: 1em;
 }
 .axis-menu-inner > div > ul.dataBlocks > li:first-child {
   /* margin-top : 1em; */
@@ -2697,51 +2516,46 @@ div.axis-menu-inner > div > ul.dataBlocks > li > button {
   font-size: x-small;
 }
 ul.dataBlocks > li {
-  display : flex;
+  display: flex;
 }
 ul.dataBlocks > li > .name {
   flex-basis: fit-content;
-  flex-grow : 1;
+  flex-grow: 1;
 }
 ul.dataBlocks > li > .featureCounts {
-  margin-left : 6em;
+  margin-left: 6em;
   flex-grow: 0;
 }
 ul.dataBlocks > li > * {
-  margin-right : 1em;
+  margin-right: 1em;
 }
 
 /* -------------------------------------------------------------------------- */
 
-.joined-groups
-{
+.joined-groups {
   max-width: 45em;
-  display : grid;
-  grid-template-columns : 1fr 1fr 6fr 6fr;
-  grid-gap : 1em;
+  display: grid;
+  grid-template-columns: 1fr 1fr 6fr 6fr;
+  grid-gap: 1em;
 }
 
-.group-outer
-{
-  margin-left : 2em;
+.group-outer {
+  margin-left: 2em;
 }
-.groups > div
-{
-  display : flex;
+.groups > div {
+  display: flex;
   grid-template-columns: 1fr 6fr;
   grid-gap: 1em;
 }
 
-.flex-gap-1
-{
-  display : flex;
-  gap : 1em
+.flex-gap-1 {
+  display: flex;
+  gap: 1em;
 }
-
 
 /* route : group/edit */
 .group-dataset {
-  width : 50%;
+  width: 50%;
   display: grid;
   grid-template-columns: 2fr 6fr 1fr 1fr 1fr 6fr;
   grid-gap: 1em;
@@ -2750,28 +2564,24 @@ ul.dataBlocks > li > * {
   // flex-grow : 1;
 }
 
-.group-dataset > label
-{
+.group-dataset > label {
   margin-top: auto;
 }
-
 
 .group-members > ul {
   list-style: none;
 }
 
 /* for <hr> */
-.left20
-{
-  width : 30em;
-  margin-left : 0px;
+.left20 {
+  width: 30em;
+  margin-left: 0px;
 }
 
 /** components/elem/display-message */
-.display-message
-{
-  width : fit-content;
-  margin : 1em;
+.display-message {
+  width: fit-content;
+  margin: 1em;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -2781,6 +2591,5 @@ ul.dataBlocks > li > * {
 
 @import "ember-modal-dialog/ember-modal-structure";
 @import "ember-modal-dialog/ember-modal-appearance";
-
 
 /* -------------------------------------------------------------------------- */
