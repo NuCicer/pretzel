@@ -227,7 +227,7 @@ export default Component.extend({
         .attr("viewBox", oa.vc.viewBox.bind(oa.vc))
         .attr("preserveAspectRatio", "none" /*"xMinYMin meet"*/)
         .attr("width", "100%" /*graphDim.w*/)
-        .attr("height", "auto" /*"auto"*/);
+        .attr("height", 300 /*"auto"*/);
       oa.svgContainer = svgRoot
         .append("svg:g")
         .attr("transform", translateTransform);
