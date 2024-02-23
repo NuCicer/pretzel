@@ -6,13 +6,12 @@ var acl = require('../utilities/acl');
 /* global require */
 /* global module */
 
-module.exports = function(Configuration) {
-
+module.exports = function (Configuration) {
   /*--------------------------------------------------------------------------*/
 
   Configuration.runtimeConfig = function (cb) {
     let handsOnTableLicenseKey = process.env.handsOnTableLicenseKey,
-    config = {handsOnTableLicenseKey};
+      config = {handsOnTableLicenseKey: 'non-commercial-and-evaluation'};
     console.log('runtimeConfig', config);
     cb(null, config);
   };
@@ -20,18 +19,17 @@ module.exports = function(Configuration) {
   /*--------------------------------------------------------------------------*/
 
   Configuration.remoteMethod('runtimeConfig', {
-    accepts: [
-    ],
+    accepts: [],
     returns: {type: 'object', root: true},
-    description: "Request run-time environment configuration of backend server, including handsOnTableLicenseKey"
+    description:
+      'Request run-time environment configuration of backend server, including handsOnTableLicenseKey',
   });
 
   /*--------------------------------------------------------------------------*/
 
-
   Configuration.version = function (cb) {
     let apiVersion = 2,
-    config = {apiVersion};
+      config = {apiVersion};
     console.log('version', config);
     cb(null, config);
   };
@@ -39,16 +37,14 @@ module.exports = function(Configuration) {
   // ---------------------------------------------------------------------------
 
   Configuration.remoteMethod('version', {
-    accepts: [
-    ],
+    accepts: [],
     returns: {type: 'object', root: true},
-    description: "Request API version of backend server"
+    description: 'Request API version of backend server',
   });
 
   // ---------------------------------------------------------------------------
 
   acl.assignRulesRecord(Configuration);
 
-  Configuration.disableRemoteMethodByName("findById");
-
+  Configuration.disableRemoteMethodByName('findById');
 };
