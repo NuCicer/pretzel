@@ -10,7 +10,7 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "sudo n 12 &&handsOnTableLicenseKey=non-commercial-and-evaluation ember build --environment=production && sudo n latest",
+    "build": "sudo n 12 && ember build --environment=production --environment=handsOnTableLicenseKey=non-commercial-and-evaluation && sudo n latest",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
